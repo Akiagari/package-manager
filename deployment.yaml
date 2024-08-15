@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: package-manager
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: package-manager
+  template:
+    metadata:
+      labels:
+        app: package-manager
+    spec:
+      containers:
+        - name: package-manager
+          image: package-manager:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
